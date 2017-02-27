@@ -1,5 +1,18 @@
 /* 
- *  Trial to send to thingsboard  
+ *  Sending Data to Thingsboard
+ *  Working Code!
+ *  
+ *  This is what is sent:
+ *  curl -v -X POST -d @telemetry-data-as-object.json http://demo.thingsboard.io:80/api/v1/<Your Access Token>/telemetry --header "Content-Type:application/json"
+ *  
+ *  Connected to demo.thingsboard.io (104.196.24.70) port 80 (#0)
+ *  > POST /api/v1/<Your AccessToken>/telemetry HTTP/1.1
+ *  > Host: demo.thingsboard.io
+ *  > Accept: **
+ *  > Content-Type:application/json
+ *  > Content-Length: 34
+ *   {"temperature":30.1, "voltage":24}
+ *  
  */
 
 
@@ -11,9 +24,15 @@ char password[]="";
 char thingsboard_url[]="demo.thingsboard.io";   //URL
 
 boolean sim900Status = false;
-char port[]="443";                      // PORT Connected on 
+char port[]="80";                      // PORT Connected on 
 String getStr="";
-String AccessToken ="Access Token of your Device";    //write API key
+const int Channel_ID =  231192;
+String AccessToken ="Your Access Token";    //write API key
+
+
+int field1 = 70; 
+int field2 = -10;
+int field3 = 60;
 
 
 void setup() 
@@ -26,7 +45,7 @@ void setup()
 
 void loop() 
 {
-  updateThingsboard();
+  updateThinkSpeak();
   delay(1000);    
 }
 
@@ -200,7 +219,7 @@ int8_t sendATcommand3(String ATcommand, char* expected_answer1,char* expected_an
 
 
 
-void updateThingsboard()
+void updateThinkSpeak()
 {
    if(sim900Status==true)
    {  
@@ -241,7 +260,7 @@ void updateThingsboard()
                  {
                          Serial.println("Connected");
                          Serial.println("\n Send some data to TCP Socket............");
-                         getStr="POST /api/v1/"+ AccessToken +"/telemetry HTTP/1.1\r\nHost: demo.thingsboard.io\r\nAccept: */*\r\nContent-Type:application/json\r\nContent-Length:34\r\n\r\n{\"temperature\":30.1, \"voltage\":24}";   //TCP packet to send GET Request on https (Think Speak)
+                         getStr="POST /api/v1/"+ AccessToken +"/telemetry HTTP/1.1\r\nHost: demo.thingsboard.io\r\nAccept: */*\r\nContent-Type: application/json\r\nContent-Length:34\r\n\r\n{\"temperature\":30.1, \"voltage\":24}";   //TCP packet to send GET Request on https (Think Speak)
                           
                          String sendcmd = "AT+CIPSEND="+ String(getStr.length());
                           
