@@ -1,4 +1,4 @@
 # Sending_Data_To_Thingsboard
-This is an experimental file wherein I am attempting to connect  my Arduino to Thingsboard.
+This is a working code wherein I am able to send data to thingsboard.io from my Arduino.
 
 Any editing suggestions are welcomed.
