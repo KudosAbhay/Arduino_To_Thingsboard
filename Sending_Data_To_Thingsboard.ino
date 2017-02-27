@@ -26,7 +26,7 @@ char thingsboard_url[]="demo.thingsboard.io";   //URL
 boolean sim900Status = false;
 char port[]="80";                      // PORT Connected on 
 String getStr="";
-const int Channel_ID =  231192;
+
 String AccessToken ="Your Access Token";    //write API key
 
 
