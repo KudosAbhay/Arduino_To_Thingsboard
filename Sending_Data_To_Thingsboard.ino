@@ -37,7 +37,7 @@ int field3 = 60;
 
 void setup() 
 {
-  Serial.begin(9600);   //Serial to print serial megssages and for MODBUS communication
+  Serial.begin(9600);     //Serial to print serial megssages
   Serial1.begin(9600);   // To connect SIM900A and send AT Commands
   power_on();            // POWER ON GSM Module for communication 
   pinMode(13,OUTPUT);
@@ -45,7 +45,7 @@ void setup()
 
 void loop() 
 {
-  updateThinkSpeak();
+  updateThingsboard();
   delay(1000);    
 }
 
@@ -219,7 +219,7 @@ int8_t sendATcommand3(String ATcommand, char* expected_answer1,char* expected_an
 
 
 
-void updateThinkSpeak()
+void updateThingsboard()
 {
    if(sim900Status==true)
    {  
