@@ -13,7 +13,7 @@ char thingsboard_url[]="demo.thingsboard.io";   //URL
 boolean sim900Status = false;
 char port[]="443";                      // PORT Connected on 
 String getStr="";
-String AccessToken ="What do I put in here?";    //write API key
+String AccessToken ="Access Token of your Device";    //write API key
 
 
 void setup() 
@@ -241,7 +241,7 @@ void updateThingsboard()
                  {
                          Serial.println("Connected");
                          Serial.println("\n Send some data to TCP Socket............");
-                         getStr="POST /api/v1/"+ AccessToken +"/telemetry HTTP/1.1\r\nHost: demo.thingsboard.io\r\nContent-Type: application/json\r\nContent-Type: application/json\r\nContent-Length:25\r\n\r\n{\"Temperature\":\"30\"}";   //TCP packet to send GET Request on https (Think Speak)
+                         getStr="POST /api/v1/"+ AccessToken +"/telemetry HTTP/1.1\r\nHost: demo.thingsboard.io\r\nAccept: */*\r\nContent-Type:application/json\r\nContent-Length:34\r\n\r\n{\"temperature\":30.1, \"voltage\":24}";   //TCP packet to send GET Request on https (Think Speak)
                           
                          String sendcmd = "AT+CIPSEND="+ String(getStr.length());
                           
