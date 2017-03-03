@@ -1,12 +1,13 @@
 /* 
  *  Sending Data to Thingsboard
- *  Working Code!
+ *  Working Code.
  *  
- *  This is what is sent:
+ *  Basic Syntax in CURL for sending data to demo server of thingsboard:
  *  curl -v -X POST -d @telemetry-data-as-object.json http://demo.thingsboard.io:80/api/v1/<Your Access Token>/telemetry --header "Content-Type:application/json"
  *  
+ *  This was my outcome: 
  *  Connected to demo.thingsboard.io (104.196.24.70) port 80 (#0)
- *  > POST /api/v1/<Your AccessToken>/telemetry HTTP/1.1
+ *  > POST /api/v1/<My AccessToken>/telemetry HTTP/1.1
  *  > Host: demo.thingsboard.io
  *  > Accept: **
  *  > Content-Type:application/json
