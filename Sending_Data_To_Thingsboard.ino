@@ -22,7 +22,7 @@
 #include <ArduinoJson.h>                                      //For Creating a Json File
 DynamicJsonBuffer jsonBuffer;                                 //Set Buffer size to Dynamic
 JsonObject& root = jsonBuffer.createObject();                 //Create an object 'root' which is called later to print JSON Buffer        
-int i=0, s = 0;
+
 
 char aux_str[100];
 char pin[]="";
@@ -114,7 +114,6 @@ void updateThingsboard()
                     {
                       delay(100);
                       sendATcommand2(getStr, "SEND OK", "ERROR", 10000);      //Sending Data Here
-                      s=0;
                     }
                     Serial.println("Closing the Socket............");                            
                     sendATcommand2("AT+CIPCLOSE", "CLOSE OK", "ERROR", 10000);
