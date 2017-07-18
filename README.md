@@ -1,4 +1,4 @@
-# Sending_Data_To_Thingsboard
+# Arduino_To_Thingsboard
 
 This is a working code which can send data to [thingsboard.io](https://thingsboard.io/) from [Arduino Mega 2560](https://store.arduino.cc/usa/arduino-mega-2560-rev3).
 
